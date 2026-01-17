@@ -18,7 +18,7 @@ public class StatementExecutor {
         this.db = db;
     }
 
-    // ---------- EXECUTE QUERY ----------
+    // executing a query
     public List<Row> executeQuery(SelectCommand cmd) {
         Table baseTable = db.table(cmd.table());
         List<Row> rows;
@@ -36,7 +36,7 @@ public class StatementExecutor {
         return rows;
     }
 
-    // ---------- EXECUTE STATEMENT ----------
+    // executing a statement
     public void execute(SqlStatement cmd) {
 
         if (cmd instanceof CreateTableCommand c) {
@@ -101,7 +101,7 @@ public class StatementExecutor {
         throw new RuntimeException("SQL statement not supported");
     }
 
-    // ---------- APPLY WHERE ----------
+    // apply where
     private List<Row> applyWhere(Table table, WhereClause where) {
         List<Row> out = new ArrayList<>();
         for (Row r : table.rows()) {
@@ -175,7 +175,7 @@ public class StatementExecutor {
         return false;
     }
 
-    // ---------- PARSE VALUE ----------
+    // parse value
     private Object parseValue(String v) {
         v = v.trim();
         if (v.equalsIgnoreCase("NULL")) return null;
@@ -185,11 +185,11 @@ public class StatementExecutor {
             if (v.contains(".")) return Double.parseDouble(v);
             return Integer.parseInt(v);
         } catch (NumberFormatException e) {
-            return v; // fallback string
+            return v;
         }
     }
 
-    // ---------- DELETE ----------
+    // deleting
     private void executeDelete(DeleteCommand cmd) {
         Table table = db.table(cmd.table());
         List<Row> targets = (cmd.where() != null)
@@ -200,7 +200,7 @@ public class StatementExecutor {
         System.out.println(targets.size() + " row(s) deleted");
     }
 
-    // ---------- JOIN ----------
+    // join clause
     private List<Row> executeJoin(Table left, JoinClause join) {
         Table right = db.table(join.rightTable());
         List<Row> result = new ArrayList<>();
@@ -238,7 +238,7 @@ public class StatementExecutor {
         return result;
     }
 
-    // ---------- PRINT ----------
+    // printing
     private void printResult(List<String> columns, List<Row> rows) {
         if (rows.isEmpty()) {
             System.out.println("(0 rows)");

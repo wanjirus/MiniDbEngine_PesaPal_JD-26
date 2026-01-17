@@ -4,7 +4,7 @@ import com.stan.pesapal.engine.schema.Row;
 
 public class ExpressionEvaluator {
 
-// handling various expressions
+// for handling various expressions
     public static Object evaluate(String expr, Row row) {
         expr = expr.trim();
 

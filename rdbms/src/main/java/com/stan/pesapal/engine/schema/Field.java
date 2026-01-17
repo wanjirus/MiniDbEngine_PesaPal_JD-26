@@ -1,5 +1,6 @@
 package com.stan.pesapal.engine.schema;
 
+//also column
 public class Field {
         public enum Type {
             INT, TEXT, BOOL,DECIMAL

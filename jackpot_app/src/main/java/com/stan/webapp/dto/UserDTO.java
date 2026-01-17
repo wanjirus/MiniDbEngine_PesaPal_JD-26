@@ -5,7 +5,7 @@ public class UserDTO {
     public String name;
     public int age;
 
-    public UserDTO() {}  // default constructor for Jackson
+    public UserDTO() {}
 
     public UserDTO(int id, String name, int age) {
         this.id = id;

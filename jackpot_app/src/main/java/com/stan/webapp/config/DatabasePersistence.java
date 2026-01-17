@@ -20,6 +20,8 @@ public class DatabasePersistence {
     }
 
     @PostConstruct
+
+    //check for an existing snapshot if not exists start new.
     public void restore() {
         File snapshotFile = new File("db_snapshot.json");
 
@@ -37,6 +39,7 @@ public class DatabasePersistence {
         }
     }
 
+    //creating and saving a snapshot
     public void save() {
         try {
             objectMapper.writeValue(new File("db_snapshot.json"), repl.getDatabase());

@@ -16,7 +16,6 @@ public class CloseRoundResponse {
         this.maintenanceCut = maintenanceCut;
     }
 
-    // ✅ Getters & Setters
     public int getRoundId() {
         return roundId;
     }

@@ -4,6 +4,7 @@ import com.stan.pesapal.engine.index.UniqueHashIndex;
 
 import java.util.*;
 
+//table defination
 public class Table {
 
     private final String name;

@@ -12,12 +12,11 @@ public class SelectCommand implements SqlStatement {
     private final JoinClause join;
     private final WhereClause where;
 
-    // OLD constructor (keep it)
+
     public SelectCommand(List<String> columns, String table, WhereClause where) {
         this(columns, table, null, where);
     }
 
-    // NEW constructor
     public SelectCommand(
             List<String> columns,
             String table,
