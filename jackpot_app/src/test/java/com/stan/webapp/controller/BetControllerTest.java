@@ -43,7 +43,7 @@ class BetControllerTest {
         // call the method
         String result = betController.placeBet(request);
 
-        // Assert test
+
         Assertions.assertEquals("✅ Bet placed for account 1 in round 10", result);
 
         verify(repl).query(
